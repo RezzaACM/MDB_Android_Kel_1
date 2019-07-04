@@ -5,6 +5,6 @@ Kelompok 1 repo tugas akhir dari training di MDB
 | ------------- |:--------------------------------------------------:|:-------------:|
 |               | 	                                                 | Master        |
 | Funky Reza    | [RezzaACM](https://github.com/RezzaACM )           |   Reza        |
-|               |                                                    |               |
+| Raden         | [radenadhyaska](https://github.com/radenadhyaksa)  |               |
 |               |                                                    |               |
 |               |                                                    |               |
