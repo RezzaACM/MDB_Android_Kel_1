@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
         // Mengarahkan halaman yang akan dituju berdasarkan id yang sudah ditentukan di optionmenu
         if (item.getItemId()==R.id.data_karyawan){
             startActivity(new Intent(this, EmployeeActivity.class));
-        } else if (item.getItemId() == R.id.tentang_apps) {
-            startActivity(new Intent(this, AboutActivity.class));
         }else if(item.getItemId() == R.id.office){
             startActivity(new Intent(this, OfficeActivity.class));
+        } else if (item.getItemId() == R.id.tentang_apps) {
+            startActivity(new Intent(this, AboutActivity.class));
         }else if (item.getItemId() == R.id.keluar) {
             startActivity(new Intent(this, LoginActivity.class));
         }
