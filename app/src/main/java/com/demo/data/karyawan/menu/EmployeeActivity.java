@@ -1,18 +1,16 @@
-package com.demo.data.karyawan;
+package com.demo.data.karyawan.menu;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.demo.data.karyawan.ListAdapter;
+import com.demo.data.karyawan.R;
+import com.demo.data.karyawan.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.MySSLSocketFactory;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 

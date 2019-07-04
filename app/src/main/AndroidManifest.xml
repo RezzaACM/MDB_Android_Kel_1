@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".OfficeActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".EmployeeActivity" />
+        <activity android:name=".menu.OfficeActivity" />
+        <activity android:name=".menu.AboutActivity" />
+        <activity android:name=".menu.EmployeeActivity" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait">

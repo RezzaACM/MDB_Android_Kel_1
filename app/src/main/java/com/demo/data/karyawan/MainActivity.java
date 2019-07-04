@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.demo.data.karyawan.menu.AboutActivity;
+import com.demo.data.karyawan.menu.EmployeeActivity;
+import com.demo.data.karyawan.menu.OfficeActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
