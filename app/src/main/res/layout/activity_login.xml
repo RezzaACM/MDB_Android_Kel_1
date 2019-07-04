@@ -5,14 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/city"
     tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_mdb"
+        android:layout_marginTop="46dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="45dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
         android:orientation="vertical">
@@ -25,36 +32,96 @@
             android:textColor="#000000"
             android:textSize="32dp" />
 
-        <EditText
-            android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username" />
 
-        <EditText
-            android:id="@+id/edtPassword"
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"/>
+            android:orientation="vertical"
+            android:background="#40ffffff">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/user2" />
+
+                <EditText
+                    android:id="@+id/edtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Username"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/gembok2" />
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <!--<EditText-->
+            <!--android:id="@+id/edtUsername"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Username" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/edtPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Password"-->
+            <!--android:inputType="textPassword"/>-->
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="LOGIN" />
+            android:text="LOGIN"
+            android:layout_marginTop="10dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
             android:layout_marginTop="20dp"
-            android:textSize="17dp"
-            android:textColor="#2196F3"
+            android:textSize="20dp"
+            android:textColor="#FFFF"
             android:gravity="center"
             android:id="@+id/tvRegis"
-            />
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lupa Password ?"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textSize="15dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#000000"/>
+
+        </LinearLayout>
 
 
-    </LinearLayout>
 
 </LinearLayout>
