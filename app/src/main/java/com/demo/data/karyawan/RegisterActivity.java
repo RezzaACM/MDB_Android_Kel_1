@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                     displayRegister(view,resp_content);
 
                 } catch (Throwable t) {
-                    Toast.makeText(RegisterActivity.this, "Koneksi Gagal1 !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Koneksi Gaga !", Toast.LENGTH_LONG).show();
                 }
             }
 
