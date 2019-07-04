@@ -4,7 +4,7 @@ Kelompok 1 repo tugas akhir dari training di MDB
 | Name          | Github                                             | Branch        | 
 | ------------- |:--------------------------------------------------:|:-------------:|
 |               | 	                                                 | Master        |
-| Funky Reza    | (RezzaACM)(https://github.com/RezzaACM             |   Reza        |
+| Funky Reza    | [RezzaACM](https://github.com/RezzaACM )           |   Reza        |
 |               |                                                    |               |
 |               |                                                    |               |
 |               |                                                    |               |
