@@ -6,5 +6,21 @@ Kelompok 1 repo tugas akhir dari training di MDB
 |               | 	                                                 | Master        |
 | Funky Reza    | [RezzaACM](https://github.com/RezzaACM )           |   Reza        |
 | Raden         | [radenadhyaska](https://github.com/radenadhyaksa)  |               |
+| Burhan        | [burhannudinnuban](https://github.com/burhannudinnuban)|         burhan      |
 |               |                                                    |               |
-|               |                                                    |               |
+
+# Cara Sync Project
+1.  Pastikan di PC kalian sudah terinstal git jika belum dapat diinstal dan didownload di https://git-scm.com/downloads
+2.  Clone project dengan : git clone di directory kalian dengan : 'git clone https://github.com/RezzaACM/MDB_Android_Kel_1.git'
+3.  Setalah berhasil clone, remote project kali :
+    * Buka projeknya dengan di android studio, lalu buka terminal di bar bawah dekat cat log
+    * 'git pull and git fetch'
+    * 'git fetch --all' 
+    * 'git pull --all'
+4.  Pindah ke branch kalian yang sudah dibuatkan:
+    * git show-branch --all
+    * git checkout <nama branch kalian yang sudah dibuatkan>'
+5.  Push task kalian :
+    * git add .
+    * git commit -m "Apa yang sudah kalian kerjakan"
+    * git push https://github.com/RezzaACM/MDB_Android_Kel_1.git'
