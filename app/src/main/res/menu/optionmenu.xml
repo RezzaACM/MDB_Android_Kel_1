@@ -8,14 +8,14 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/office"
+        android:title="Perusahaan"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/tentang_apps"
         android:title="Tentang Apps"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/office"
-        android:title="Perusahaan"
-        app:showAsAction="never"
-        />
 
     <item
         android:id="@+id/keluar"
