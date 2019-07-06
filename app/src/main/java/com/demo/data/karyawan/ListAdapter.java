@@ -122,6 +122,22 @@ public class ListAdapter extends BaseAdapter {
 //                tvEmployeeGender.setText(empList.get("gender"));
                 Picasso.get().load(officeList.get("base_url")).into(officeImage);
 
+                final HashMap<String, String> finalEmpList2 = officeList;
+                vi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent= new Intent(context, DetailOfficeActivity.class);
+                        intent.putExtra("office_name", finalEmpList2.get("office_name"));
+                        intent.putExtra("office_address", finalEmpList2.get("office_address"));
+                        intent.putExtra("cell_phone", finalEmpList2.get("cell_phone"));
+                        intent.putExtra("email", finalEmpList2.get("email"));
+                        intent.putExtra("office_description", finalEmpList2.get("office_description"));
+                        intent.putExtra("base_url", finalEmpList2.get("base_url"));
+
+
+                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    }
+                });
                 break;
 
             default:
