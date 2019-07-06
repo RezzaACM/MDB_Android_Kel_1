@@ -19,7 +19,7 @@ public class DetailOfficeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_kantor);
+        setContentView(R.layout.activity_detail_office);
 
 //      Deklarasi variabel dengan object pada layout
         nameOffice = findViewById(R.id.tvNameOFF);
@@ -41,15 +41,15 @@ public class DetailOfficeActivity extends AppCompatActivity {
 
       
         nameOffice.setText
-                ("Nama              : "+nameOffice1);
+                (" "+nameOffice1);
         addressOffice.setText
-                ("Alamat        : "+alamatOffice1);
+                ("◆ "+alamatOffice1);
         phoneOffice.setText
-                ("Phone          : "+phoneOffice1);
+                ("◆ "+phoneOffice1);
         emailOffice.setText
-                ("Email            : "+emailOffice1);
+                ("◆ "+emailOffice1);
         descOffice.setText
-                ("Deskripsi     : "+descOffice1);
+                (" "+descOffice1);
 
 
         Picasso.get().load((image1)).into(imgOffice);
