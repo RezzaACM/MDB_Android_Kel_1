@@ -1,5 +1,6 @@
 package com.demo.data.karyawan.menu;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,13 +35,15 @@ public class EmployeeActivity extends AppCompatActivity {
     //Declare ArrayList
     ArrayList<HashMap<String, String>> datakaryawan_arrayList = new ArrayList <HashMap<String, String>>();
 
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
 
+        context = getApplicationContext();
         rest_class = new RestProcess();
-
         lvDataKaryawan = (ListView) findViewById(R.id.lvDataKaryawan);
 
         getDataKaryawan(null);
@@ -89,7 +92,7 @@ public class EmployeeActivity extends AppCompatActivity {
             if(datakaryawan_arrayList.get(0).get("var_result").equals("1")) {
 
                 datakaryawan_arrayList.remove(0);
-                adapter = new ListAdapter(EmployeeActivity.this, datakaryawan_arrayList, 1);
+                adapter = new ListAdapter(EmployeeActivity.this, datakaryawan_arrayList, 1, context);
                 lvDataKaryawan.setAdapter(adapter);
                 Toast.makeText(EmployeeActivity.this, "Koneksi Behasil !", Toast.LENGTH_LONG).show();
 

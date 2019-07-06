@@ -1,6 +1,9 @@
 package com.demo.data.karyawan;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +25,15 @@ public class ListAdapter extends BaseAdapter {
     private int fragment_position=0;
     private static LayoutInflater inflater=null;
     private String PACKAGE_NAME;
+    Context context;
 
-    public ListAdapter(Activity a,ArrayList<HashMap<String, String>> d, int fragment_pos) {
+    public ListAdapter(Activity a, ArrayList<HashMap<String, String>> d, int fragment_pos, Context context) {
         data=d;
         activity = a;
         fragment_position = fragment_pos;
         inflater = (LayoutInflater)activity.getSystemService(LAYOUT_INFLATER_SERVICE);
         PACKAGE_NAME = activity.getPackageName();
+        this.context = context;
     }
 
     @Override
@@ -54,7 +59,7 @@ public class ListAdapter extends BaseAdapter {
             case 1:
                 if (convertView == null)
                     vi = inflater.inflate(R.layout.lv_employee, null);
-
+                CardView cv= vi.findViewById(R.id.cv);
                 TextView tvEmployeeName = (TextView) vi.findViewById(R.id.tvEmployeeName);
                 TextView tvEmployeeNumber = (TextView) vi.findViewById(R.id.tvEmployeeNumber);
                 TextView tvEmployeeAddress = (TextView) vi.findViewById(R.id.tvEmployeeAddress);
@@ -71,7 +76,30 @@ public class ListAdapter extends BaseAdapter {
                 tvEmployeeGender.setText(empList.get("gender"));
                 Picasso.get().load(empList.get("base_url")).into(image);
 
+                final HashMap<String, String> finalEmpList1 = empList;
 
+                cv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent= new Intent(context, DetailEmployeeActivity.class);
+                        intent.putExtra("nomor_induk_pegawai", finalEmpList1.get("nomor_induk_pegawai"));
+                        intent.putExtra("employee_name", finalEmpList1.get("employee_name"));
+                        intent.putExtra("address", finalEmpList1.get("address"));
+                        intent.putExtra("gol_darah", finalEmpList1.get("gol_darah"));
+                        intent.putExtra("tempat_buat", finalEmpList1.get("tempat_buat"));
+                        intent.putExtra("agama", finalEmpList1.get("agama"));
+                        intent.putExtra("status_perkawinan", finalEmpList1.get("status_perkawinan"));
+                        intent.putExtra("kewarganegaraan", finalEmpList1.get("kewarganegaraan"));
+                        intent.putExtra("berlaku_hingga", finalEmpList1.get("berlaku_hingga"));
+                        intent.putExtra("gender", finalEmpList1.get("gender"));
+                        intent.putExtra("tempat_buat", finalEmpList1.get("tempat_buat"));
+                        intent.putExtra("tanggal_buat", finalEmpList1.get("tanggal_buat"));
+                        intent.putExtra("base_url", finalEmpList1.get("base_url"));
+
+                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+
+                    }
+                });
                 break;
 
             case 2:

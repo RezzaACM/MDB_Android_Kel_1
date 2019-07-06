@@ -1,5 +1,6 @@
 package com.demo.data.karyawan.menu;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class OfficeActivity extends AppCompatActivity {
     ListView listOfficee;
     ListAdapter adapter;
     ArrayList<HashMap<String, String>> dataOffice = new ArrayList <HashMap<String, String>>();
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class OfficeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_office);
 
         getSupportActionBar().hide();
+        context = getApplicationContext();
 
         rest_class = new RestProcess();
         listOfficee = (ListView) findViewById(R.id.listOffice);
@@ -77,7 +80,7 @@ public class OfficeActivity extends AppCompatActivity {
             if(dataOffice.get(0).get("var_result").equals("1")){
 
                 dataOffice.remove(0);
-                adapter = new ListAdapter(OfficeActivity.this, dataOffice, 2);
+                adapter = new ListAdapter(OfficeActivity.this, dataOffice, 2, context);
                 listOfficee.setAdapter(adapter);
                 Toast.makeText(OfficeActivity.this, "Koneksi Berhasil", Toast.LENGTH_SHORT).show();
             }else{
