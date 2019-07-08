@@ -1,15 +1,22 @@
 package com.demo.data.karyawan;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+
+import com.ceylonlabs.imageviewpopup.ImagePopup;
 
 import com.squareup.picasso.Picasso;
 
@@ -19,15 +26,17 @@ import java.util.HashMap;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class ListAdapter extends BaseAdapter {
-
+    Dialog myDialog;
     private Activity activity;
     private ArrayList<HashMap<String, String>> data;
     private int fragment_position=0;
     private static LayoutInflater inflater=null;
     private String PACKAGE_NAME;
     Context context;
+    ImageView image;
 
     public ListAdapter(Activity a, ArrayList<HashMap<String, String>> d, int fragment_pos, Context context) {
+
         data=d;
         activity = a;
         fragment_position = fragment_pos;
@@ -138,6 +147,16 @@ public class ListAdapter extends BaseAdapter {
                         context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     }
                 });
+
+                officeImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+
+                });
+
+
                 break;
 
             default:
