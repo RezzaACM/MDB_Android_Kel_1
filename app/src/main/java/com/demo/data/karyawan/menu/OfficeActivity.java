@@ -35,7 +35,7 @@ public class OfficeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_office);
 
         getSupportActionBar().hide();
-        context = getApplicationContext();
+        context = OfficeActivity.this;
 
         rest_class = new RestProcess();
         listOfficee = (ListView) findViewById(R.id.listOffice);

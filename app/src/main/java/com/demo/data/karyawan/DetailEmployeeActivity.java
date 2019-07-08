@@ -1,8 +1,13 @@
 package com.demo.data.karyawan;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,11 +38,14 @@ public class DetailEmployeeActivity extends AppCompatActivity {
     TextView tempat_buat;
     TextView tanggal_buat;
     ImageView imgemployee;
+    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_employee);
+
+        ctx = DetailEmployeeActivity.this;
 
 //        Deklarasi variabel dengan object pada layout
         nip = findViewById(R.id.tvNomorIndukPegawai);
@@ -90,6 +98,48 @@ public class DetailEmployeeActivity extends AppCompatActivity {
         tanggal_buat.setText(tanggal_buat1);
         Picasso.get().load((image1)).into(imgemployee);
 
+//        Dialog settingsDialog = new Dialog(this);
+//        settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+//        settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_layout
+//                , null));
+//        settingsDialog.show();
+
+        final ImageView image = new ImageView(this);
+        Picasso.get().load((image1)).into(image);
+
+        imgemployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctx);
+
+                // set title dialog
+                alertDialogBuilder.setTitle("Photo Employee");
+
+                // set pesan dari dialog
+                alertDialogBuilder
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setCancelable(false)
+                        .setView(image)
+                        .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // jika tombol diklik, maka akan menutup activity ini
+                                DetailEmployeeActivity.this.finish();
+                            }
+                        });
+
+
+                // membuat alert dialog dari builder
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // menampilkan alert dialog
+                alertDialog.show();
+
+            }
+        });
+
+
+    }
 
 
 
@@ -103,4 +153,3 @@ public class DetailEmployeeActivity extends AppCompatActivity {
 
 
     }
-}

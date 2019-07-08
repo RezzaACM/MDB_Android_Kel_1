@@ -42,7 +42,7 @@ public class EmployeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
 
-        context = getApplicationContext();
+        context = EmployeeActivity.this;
         rest_class = new RestProcess();
         lvDataKaryawan = (ListView) findViewById(R.id.lvDataKaryawan);
 
