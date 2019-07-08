@@ -1,15 +1,22 @@
 package com.demo.data.karyawan;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.squareup.picasso.Picasso;
 
@@ -19,15 +26,18 @@ import java.util.HashMap;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class ListAdapter extends BaseAdapter {
-
+    Dialog myDialog;
     private Activity activity;
     private ArrayList<HashMap<String, String>> data;
     private int fragment_position=0;
     private static LayoutInflater inflater=null;
     private String PACKAGE_NAME;
     Context context;
+    ImageView image;
+
 
     public ListAdapter(Activity a, ArrayList<HashMap<String, String>> d, int fragment_pos, Context context) {
+
         data=d;
         activity = a;
         fragment_position = fragment_pos;
@@ -60,6 +70,7 @@ public class ListAdapter extends BaseAdapter {
                 if (convertView == null)
                     vi = inflater.inflate(R.layout.lv_employee, null);
                 CardView cv= vi.findViewById(R.id.cv);
+                ImageView btn=vi.findViewById(R.id.imgbtn_view);
                 TextView tvEmployeeName = (TextView) vi.findViewById(R.id.tvEmployeeName);
                 TextView tvEmployeeNumber = (TextView) vi.findViewById(R.id.tvEmployeeNumber);
                 TextView tvEmployeeAddress = (TextView) vi.findViewById(R.id.tvEmployeeAddress);
@@ -78,7 +89,7 @@ public class ListAdapter extends BaseAdapter {
 
                 final HashMap<String, String> finalEmpList1 = empList;
 
-                cv.setOnClickListener(new View.OnClickListener() {
+                btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent= new Intent(context, DetailEmployeeActivity.class);
@@ -100,11 +111,45 @@ public class ListAdapter extends BaseAdapter {
 
                     }
                 });
+
+                final ImageView image1 = new ImageView(context);
+                Picasso.get().load(empList.get("base_url")).into(image1);
+
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                        // set title dialog
+                        alertDialogBuilder.setTitle("Photo Employee");
+
+                        // set pesan dari dialog
+                        alertDialogBuilder
+                                .setIcon(R.mipmap.ic_launcher)
+                                .setCancelable(false)
+                                .setView(image1)
+                                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // jika tombol diklik, maka akan menutup activity ini
+                                    }
+                                });
+
+
+                        // membuat alert dialog dari builder
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // menampilkan alert dialog
+                        alertDialog.show();
+
+                    }
+                });
                 break;
 
             case 2:
                 if (convertView == null)
                     vi = inflater.inflate(R.layout.lv_office, null);
+                ImageView btn1=vi.findViewById(R.id.imgbtn);
 
                 TextView tvOfficeName = (TextView) vi.findViewById(R.id.officeName);
                 TextView tvOfficeAddress = (TextView) vi.findViewById(R.id.addressOffice);
@@ -123,7 +168,7 @@ public class ListAdapter extends BaseAdapter {
                 Picasso.get().load(officeList.get("base_url")).into(officeImage);
 
                 final HashMap<String, String> finalEmpList2 = officeList;
-                vi.setOnClickListener(new View.OnClickListener() {
+                btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent= new Intent(context, DetailOfficeActivity.class);
@@ -138,6 +183,40 @@ public class ListAdapter extends BaseAdapter {
                         context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     }
                 });
+
+                final ImageView image2 = new ImageView(context);
+                Picasso.get().load(finalEmpList2.get("base_url")).into(image2);
+
+                officeImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                        // set title dialog
+                        alertDialogBuilder.setTitle("Photo Office");
+
+                        // set pesan dari dialog
+                        alertDialogBuilder
+                                .setIcon(R.mipmap.ic_launcher)
+                                .setCancelable(false)
+                                .setView(image2)
+                                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // jika tombol diklik, maka akan menutup activity ini
+                                    }
+                                });
+
+
+                        // membuat alert dialog dari builder
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // menampilkan alert dialog
+                        alertDialog.show();
+
+                    }
+                });
+
                 break;
 
             default:
