@@ -148,14 +148,6 @@ public class ListAdapter extends BaseAdapter {
                     }
                 });
 
-                officeImage.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-
-                });
-
 
                 break;
 
