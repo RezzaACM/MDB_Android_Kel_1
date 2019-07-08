@@ -7,7 +7,7 @@ Kelompok 1 repo tugas akhir dari training di MDB
 | Funky Reza    | [RezzaACM](https://github.com/RezzaACM )           |   Reza        |
 | Raden         | [radenadhyaska](https://github.com/radenadhyaksa)  |      raden         |
 | Burhan        | [burhanudinnuban](https://github.com/burhanudinnuban)|         burhan      |
-|               |                                                    |               |
+| Bilqis        | [bilqis](https://github.com/umibil)                |       bilqis        |
 
 # Cara Sync Project
 1.  Pastikan di PC kalian sudah terinstal git jika belum dapat diinstal dan didownload di https://git-scm.com/downloads
