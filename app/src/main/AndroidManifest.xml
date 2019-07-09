@@ -17,7 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test"></activity>
         <activity android:name=".DetailEmployeeActivity" />
         <activity android:name=".DetailOfficeActivity" />
         <activity android:name=".LoginActivity" />
@@ -35,6 +34,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDEr4KICd4xkNPK39r_oWfxe2yEWwRPbQU" />
     </application>
 
 </manifest>

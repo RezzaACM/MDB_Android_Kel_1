@@ -38,8 +38,8 @@ public class AboutActivity extends AppCompatActivity {
         rest_class = new RestProcess();
         wvAbout = findViewById(R.id.wvAbout);
         getAbout(null);
-
     }
+
     private void getAbout(final View view){
         HashMap<String, String> apiData = new HashMap<>();
         apiData = rest_class.apiSetting();

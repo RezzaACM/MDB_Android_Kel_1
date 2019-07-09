@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/office"
-        android:title="Perusahaan"
+        android:title="Data Perusahaan"
         app:showAsAction="never" />
 
     <item

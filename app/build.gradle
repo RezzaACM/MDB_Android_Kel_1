@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -16,9 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    repositories {
-        flatDir {
-            dirs 'libs'
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            flatDir {
+                dirs 'libs'
+            }
         }
     }
 }
@@ -37,8 +42,21 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation(name: 'HERE-sdk', ext: 'aar')
-    implementation 'org.locationtech.jts:jts-core:1.15.0'
-    implementation 'com.google.code.gson:gson:2.8.0'
+//    Here Maps
+//    implementation(name: 'HERE-sdk', ext: 'aar')
+//    implementation 'org.locationtech.jts:jts-core:1.15.0'
+//    implementation 'com.google.code.gson:gson:2.8.0'
 
+
+//    Google Api Maps
+    implementation name:'maps-sdk-3.0.0-beta', ext:'aar'
+    implementation 'com.android.support:support-v4:+'
+    implementation 'com.android.support:appcompat-v7:+'
+    implementation 'com.google.android.gms:play-services-basement:15.0.1'
+    implementation 'com.google.android.gms:play-services-base:15.0.1'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.maps.android:android-maps-utils-sdk-v3-compat:0.1'
+    implementation 'com.android.support:multidex:1.0.3'
 }

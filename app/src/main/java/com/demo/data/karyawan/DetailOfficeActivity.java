@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.libraries.maps.GoogleMap;
+import com.google.android.libraries.maps.OnMapReadyCallback;
+import com.google.android.libraries.maps.SupportMapFragment;
+import com.google.android.libraries.maps.model.LatLng;
+import com.google.android.libraries.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
-public class DetailOfficeActivity extends AppCompatActivity {
+public class DetailOfficeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     TextView nameOffice;
     TextView addressOffice;
@@ -26,6 +31,11 @@ public class DetailOfficeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_office);
         ctx = DetailOfficeActivity.this;
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
 
 //      Deklarasi variabel dengan object pada layout
         nameOffice = findViewById(R.id.tvNameOFF);
@@ -44,6 +54,8 @@ public class DetailOfficeActivity extends AppCompatActivity {
         final String descOffice1 = getIntent().getStringExtra("office_description");
         
         final String image1 = getIntent().getStringExtra("base_url");
+        final String maps_latlng = getIntent().getStringExtra("location_gps");
+
 
       
         nameOffice.setText
@@ -93,6 +105,12 @@ public class DetailOfficeActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(-6.239199, 106.832840)).title("Marker"));
 
     }
 }
