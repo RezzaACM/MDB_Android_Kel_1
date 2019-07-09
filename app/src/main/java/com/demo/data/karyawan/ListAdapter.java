@@ -150,6 +150,7 @@ public class ListAdapter extends BaseAdapter {
                 if (convertView == null)
                     vi = inflater.inflate(R.layout.lv_office, null);
                 ImageView btn1=vi.findViewById(R.id.imgbtn);
+                ImageView btn12 = vi.findViewById(R.id.imgbtn1);
 
                 TextView tvOfficeName = (TextView) vi.findViewById(R.id.officeName);
                 TextView tvOfficeAddress = (TextView) vi.findViewById(R.id.addressOffice);
@@ -172,6 +173,23 @@ public class ListAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View v) {
                         Intent intent= new Intent(context, DetailOfficeActivity.class);
+                        intent.putExtra("office_name", finalEmpList2.get("office_name"));
+                        intent.putExtra("office_address", finalEmpList2.get("office_address"));
+                        intent.putExtra("cell_phone", finalEmpList2.get("cell_phone"));
+                        intent.putExtra("email", finalEmpList2.get("email"));
+                        intent.putExtra("office_description", finalEmpList2.get("office_description"));
+                        intent.putExtra("base_url", finalEmpList2.get("base_url"));
+                        intent.putExtra("location_gps", finalEmpList2.get("location_gps"));
+
+
+                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    }
+                });
+
+                btn12.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent= new Intent(context, HereMapsOffice.class);
                         intent.putExtra("office_name", finalEmpList2.get("office_name"));
                         intent.putExtra("office_address", finalEmpList2.get("office_address"));
                         intent.putExtra("cell_phone", finalEmpList2.get("cell_phone"));

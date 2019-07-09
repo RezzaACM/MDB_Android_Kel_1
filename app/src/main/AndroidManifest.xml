@@ -13,10 +13,11 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".HereMapsOffice"></activity>
         <activity android:name=".DetailEmployeeActivity" />
         <activity android:name=".DetailOfficeActivity" />
         <activity android:name=".LoginActivity" />
@@ -34,9 +35,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDEr4KICd4xkNPK39r_oWfxe2yEWwRPbQU" />
+        <meta-data
+            android:name="com.here.android.maps.appid"
+            android:value="F7x7jI0MNUYrk0Ata45m" />
+        <meta-data
+            android:name="com.here.android.maps.apptoken"
+            android:value="nxmlm-dAZkldc3fRYRR1gQ" />
     </application>
 
 </manifest>
