@@ -178,6 +178,7 @@ public class ListAdapter extends BaseAdapter {
                         intent.putExtra("email", finalEmpList2.get("email"));
                         intent.putExtra("office_description", finalEmpList2.get("office_description"));
                         intent.putExtra("base_url", finalEmpList2.get("base_url"));
+                        intent.putExtra("location_gps", finalEmpList2.get("location_gps"));
 
 
                         context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));

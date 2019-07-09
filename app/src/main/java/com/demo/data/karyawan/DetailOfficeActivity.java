@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.libraries.maps.CameraUpdateFactory;
 import com.google.android.libraries.maps.GoogleMap;
 import com.google.android.libraries.maps.OnMapReadyCallback;
 import com.google.android.libraries.maps.SupportMapFragment;
@@ -25,12 +27,15 @@ public class DetailOfficeActivity extends AppCompatActivity implements OnMapRead
     TextView descOffice;
     ImageView imgOffice;
     Context ctx;
-
+    Double lat = 0.0;
+    Double lng = 0.0;
+    String officename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_office);
         ctx = DetailOfficeActivity.this;
+
 
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -47,7 +52,7 @@ public class DetailOfficeActivity extends AppCompatActivity implements OnMapRead
         imgOffice = findViewById(R.id.imgOffice);
 
 //      Deklarasi variabel dengan object pada database
-        final String nameOffice1 = getIntent().getStringExtra("office_name");
+        officename = getIntent().getStringExtra("office_name");
         final String alamatOffice1 = getIntent().getStringExtra("office_address");
         final String phoneOffice1 = getIntent().getStringExtra("cell_phone");
         final String emailOffice1 = getIntent().getStringExtra("email");
@@ -55,11 +60,13 @@ public class DetailOfficeActivity extends AppCompatActivity implements OnMapRead
         
         final String image1 = getIntent().getStringExtra("base_url");
         final String maps_latlng = getIntent().getStringExtra("location_gps");
+        Log.d("debug", "onCreate: "+maps_latlng);
+        String[] separated = maps_latlng.split(",");
+        lat = Double.parseDouble(String.valueOf(separated[0]));
+        lng = Double.parseDouble(String.valueOf(separated[1]));
 
-
-      
         nameOffice.setText
-                (" "+nameOffice1);
+                (" "+officename);
         addressOffice.setText
                 ("◆ "+alamatOffice1);
         phoneOffice.setText
@@ -110,7 +117,9 @@ public class DetailOfficeActivity extends AppCompatActivity implements OnMapRead
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(-6.239199, 106.832840)).title("Marker"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(officename));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lng)));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
     }
 }
