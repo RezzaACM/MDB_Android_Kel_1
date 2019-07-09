@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvDetailEmployee"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#FFFFFF"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <ImageView
+                android:id="@+id/imgOffice"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="6dp" />
+            <TextView
+                android:id="@+id/tvDesckripsiOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi     : "
+                android:layout_marginTop="28dp"/>
+            <!-- Map Fragment embedded with the map object -->
+            <fragment
+                class="com.here.android.mpa.mapping.SupportMapFragment"
+                android:id="@+id/mapfragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNameOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama              : "
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tvAddressOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat        : " />
+
+            <TextView
+                android:id="@+id/tvPhoneOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone          : " />
+
+            <TextView
+                android:id="@+id/tvEmailOFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email            : " />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
